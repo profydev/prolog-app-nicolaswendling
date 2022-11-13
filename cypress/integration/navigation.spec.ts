@@ -26,6 +26,17 @@ describe("Sidebar Navigation", () => {
       cy.url().should("eq", "http://localhost:3000/dashboard/settings");
     });
 
+    it("open User Client Email", () => {
+      const link = cy.get("nav").contains("Support");
+      // link.click();
+      link
+        .should("have.attr", "href")
+        .and(
+          "include",
+          "mailto:support@prolog-app.com.com?subject=Support Request: "
+        );
+    });
+
     it("is collapsible", () => {
       // collapse navigation
       cy.get("nav").contains("Collapse").click();
@@ -55,7 +66,7 @@ describe("Sidebar Navigation", () => {
 
     function isNotInViewport(el: string) {
       cy.get(el).then(($el) => {
-        // naviation should be outside of the screen
+        // navigation should be outside of the screen
         const rect = $el[0].getBoundingClientRect();
         expect(rect.left).to.be.equal(-rect.width);
         expect(rect.right).to.be.equal(0);
