@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { color, breakpoint, space } from "@styles/theme";
 import Image from "next/image";
 import Link from "next/link";
+import { version } from "../../../package.json";
 
 const Container = styled.footer`
   color: ${color("gray", 400)};
@@ -46,8 +47,6 @@ const ImageWrapper = styled.div`
     order: 2;
   }
 `;
-
-const version = "14.5.1";
 
 export function Footer() {
   return (
