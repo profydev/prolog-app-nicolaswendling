@@ -13,7 +13,6 @@ describe("Project List", () => {
 
     // wait for request to resolve
     cy.wait("@getProjects");
-    cy.wait(2500);
   });
 
   context("desktop resolution", () => {
