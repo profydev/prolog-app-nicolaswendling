@@ -69,10 +69,18 @@ const Header = styled.header`
 `;
 
 const Logo = styled.img`
-  width: 7.375rem;
-
+  display: none;
   @media (min-width: ${breakpoint("desktop")}) {
+    display: block;
+    width: 7.375rem;
     margin: ${space(0, 4)};
+  }
+`;
+const LogoMobile = styled.img`
+  width: 7.375rem;
+  display: block;
+  @media (min-width: ${breakpoint("desktop")}) {
+    display: none;
   }
 `;
 
@@ -147,6 +155,11 @@ const LinkList = styled(List)`
 const CollapseMenuItem = styled(MenuItemButton)`
   display: none;
 
+  img {
+    transform: ${({ isCollapsed }) =>
+      isCollapsed ? "rotate(180deg)" : "rotate(0);"};
+  }
+
   @media (min-width: ${breakpoint("desktop")}) {
     display: flex;
   }
@@ -168,6 +181,7 @@ export function SidebarNavigation() {
             }
             alt="logo"
           />
+          <LogoMobile src="/icons/logo-large.svg" alt="logo" />
           <MenuButton onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}>
             <MenuIcon
               src={isMobileMenuOpen ? "/icons/close.svg" : "/icons/menu.svg"}
@@ -189,11 +203,12 @@ export function SidebarNavigation() {
           </LinkList>
 
           <List>
-            <MenuItemButton
+            <MenuItemLink
               text="Support"
+              href="mailto:support@prolog-app.com.com?subject=Support Request: "
+              isActive={false}
               iconSrc="/icons/support.svg"
               isCollapsed={isSidebarCollapsed}
-              onClick={() => alert("Support")}
             />
             <CollapseMenuItem
               text="Collapse"
