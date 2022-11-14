@@ -51,8 +51,8 @@ const version = "14.5.1";
 
 export function Footer() {
   return (
-    <Container>
-      <Nav>
+    <Container id="footer">
+      <Nav id="footer-nav">
         <Link href="#" passHref>
           <Anchor>Docs</Anchor>
         </Link>
