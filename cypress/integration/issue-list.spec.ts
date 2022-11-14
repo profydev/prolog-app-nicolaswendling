@@ -26,7 +26,7 @@ describe("Issue List", () => {
     cy.wait("@getIssues");
 
     // set button aliases
-    cy.get("button", { timeout: 10000 }).contains("Previous").as("prev-button");
+    cy.get("button", { timeout: 1000 }).contains("Previous").as("prev-button");
     cy.get("button").contains("Next").as("next-button");
   });
 
@@ -75,10 +75,15 @@ describe("Issue List", () => {
 
     it("persists page after reload", () => {
       cy.get("@next-button").click();
-      cy.contains("Page 2 of 3");
+      cy.contains("Page 2 of 3").as("page-2-of-3");
 
-      cy.reload();
-      cy.contains("Page 2 of 3");
+      cy.reload({ timeout: 10000 });
+      cy.wait(10000);
+      cy.get("@page-2-of-3").should("have.text", "Page 2 of 3");
+
+      // cy.reload({ timeout: 5000 });
+      // cy.wait("@pagination");
+      // cy.contains("@pagination").should("have.text", "Page 2 of 3");
     });
   });
 });
