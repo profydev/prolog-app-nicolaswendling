@@ -67,9 +67,15 @@ export function Footer() {
         </Link>
       </Nav>
       <ImageWrapper>
-        <Image src="/icons/logo-small.svg" alt="logo" width="23" height="33" />
+        <Image
+          id="footer-logo"
+          src="/icons/logo-small.svg"
+          alt="logo"
+          width="23"
+          height="33"
+        />
       </ImageWrapper>
-      <Version>
+      <Version id="version">
         Version: <span>{version}</span>
       </Version>
     </Container>
