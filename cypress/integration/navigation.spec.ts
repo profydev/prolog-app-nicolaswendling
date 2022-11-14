@@ -28,7 +28,6 @@ describe("Sidebar Navigation", () => {
 
     it("open User Client Email", () => {
       cy.get("nav").contains("Support").as("support-link");
-      // cy.get("@support-link").click();
       cy.get("@support-link")
         .should("have.attr", "href")
         .and(
