@@ -69,10 +69,18 @@ const Header = styled.header`
 `;
 
 const Logo = styled.img`
-  width: 7.375rem;
-
+  display: none;
   @media (min-width: ${breakpoint("desktop")}) {
+    display: block;
+    width: 7.375rem;
     margin: ${space(0, 4)};
+  }
+`;
+const LogoMobile = styled.img`
+  width: 7.375rem;
+  display: block;
+  @media (min-width: ${breakpoint("desktop")}) {
+    display: none;
   }
 `;
 
@@ -173,6 +181,7 @@ export function SidebarNavigation() {
             }
             alt="logo"
           />
+          <LogoMobile src="/icons/logo-large.svg" alt="logo" />
           <MenuButton onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}>
             <MenuIcon
               src={isMobileMenuOpen ? "/icons/close.svg" : "/icons/menu.svg"}
