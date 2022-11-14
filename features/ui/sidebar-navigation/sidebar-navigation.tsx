@@ -170,7 +170,7 @@ export function SidebarNavigation() {
   const { isSidebarCollapsed, toggleSidebar } = useContext(NavigationContext);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
-    <Container isCollapsed={isSidebarCollapsed}>
+    <Container id="sidebar" isCollapsed={isSidebarCollapsed}>
       <FixedContainer>
         <Header>
           <Logo
@@ -190,7 +190,7 @@ export function SidebarNavigation() {
           </MenuButton>
         </Header>
         <MenuOverlay isMobileMenuOpen={isMobileMenuOpen} />
-        <Nav isMobileMenuOpen={isMobileMenuOpen}>
+        <Nav id="sidebar-nav" isMobileMenuOpen={isMobileMenuOpen}>
           <LinkList>
             {menuItems.map((menuItem, index) => (
               <MenuItemLink
