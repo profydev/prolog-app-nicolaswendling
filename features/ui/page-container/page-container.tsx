@@ -33,7 +33,8 @@ const ContentContainer = styled.div`
   background: white;
 
   @media (min-width: ${breakpoint("desktop")}) {
-    min-height: calc(100vh - ${space(3)} - 2 * ${space(8)});
+    //3*space(5) = footer
+    min-height: calc(100vh - ${space(3)} - 2 * ${space(8)} - 3 * ${space(5)});
     margin-top: ${space(3)};
     padding: ${space(8)};
     border-top-left-radius: ${space(10)};
@@ -67,8 +68,8 @@ export function PageContainer({ children, title, info }: PageContainerProps) {
           <Title>{title}</Title>
           <Info>{info}</Info>
           {children}
-          <Footer />
         </ContentContainer>
+        <Footer />
       </Main>
     </Container>
   );

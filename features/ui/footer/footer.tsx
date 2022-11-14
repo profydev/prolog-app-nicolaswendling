@@ -7,21 +7,25 @@ const Container = styled.footer`
   color: ${color("gray", 400)};
   background: ${color("gray", 50)};
   text-align: center;
-  padding: ${space(8)};
+  padding: ${space(6)};
   @media (min-width: ${breakpoint("desktop")}) {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 60px;
-    padding: 0 ${space(8)};
+    padding: 0 ${space(6)};
   }
 `;
 
 const Nav = styled.nav`
   display: flex;
   justify-content: center;
-  gap: ${space(8)};
-  margin: auto auto ${space(8)};
+  gap: ${space(6)};
+  margin: auto auto ${space(6)};
+  @media (min-width: ${breakpoint("desktop")}) {
+    order: 1;
+    flex-grow: 1;
+  }
 `;
 const Anchor = styled.a`
   color: ${color("gray", 500)};
@@ -31,7 +35,16 @@ const Anchor = styled.a`
 
 const Version = styled.span`
   display: block;
-  margin: ${space(8)} auto auto;
+  margin: ${space(6)} auto auto;
+  @media (min-width: ${breakpoint("desktop")}) {
+    order: 0;
+  }
+`;
+
+const ImageWrapper = styled.div`
+  @media (min-width: ${breakpoint("desktop")}) {
+    order: 2;
+  }
 `;
 
 const version = "14.5.1";
@@ -53,7 +66,9 @@ export function Footer() {
           <Anchor href="#">Community</Anchor>
         </Link>
       </Nav>
-      <Image src="/icons/logo-small.svg" alt="logo" width="23" height="33" />
+      <ImageWrapper>
+        <Image src="/icons/logo-small.svg" alt="logo" width="23" height="33" />
+      </ImageWrapper>
       <Version>
         Version: <span>{version}</span>
       </Version>
