@@ -5,7 +5,7 @@ import { Routes } from "@config/routes";
 import { NavigationContext } from "./navigation-context";
 import { MenuItemButton } from "./menu-item-button";
 import { MenuItemLink } from "./menu-item-link";
-import { Button } from "@features/ui";
+import { ButtonNude } from "@features/ui";
 import { breakpoint, color, space, zIndex } from "@styles/theme";
 
 const menuItems = [
@@ -84,7 +84,7 @@ const LogoMobile = styled.img`
   }
 `;
 
-const MenuButton = styled(Button)`
+const MenuButton = styled(ButtonNude)`
   @media (min-width: ${breakpoint("desktop")}) {
     display: none;
   }
