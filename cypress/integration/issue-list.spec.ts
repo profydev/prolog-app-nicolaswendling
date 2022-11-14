@@ -5,18 +5,19 @@ import mockIssues3 from "../fixtures/issues-page-3.json";
 describe("Issue List", () => {
   beforeEach(() => {
     // setup request mocks
+    // setup request mocks
     cy.intercept("GET", "https://prolog-api.profy.dev/project", {
       fixture: "projects.json",
     }).as("getProjects");
     cy.intercept("GET", "https://prolog-api.profy.dev/issue?page=1", {
       fixture: "issues-page-1.json",
-    }).as("getIssues");
+    }).as("getIssuesPage1");
     cy.intercept("GET", "https://prolog-api.profy.dev/issue?page=2", {
       fixture: "issues-page-2.json",
-    });
+    }).as("getIssuesPage2");
     cy.intercept("GET", "https://prolog-api.profy.dev/issue?page=3", {
       fixture: "issues-page-3.json",
-    });
+    }).as("getIssuesPage3");
 
     // open issues page
     cy.visit(`http://localhost:3000/dashboard/issues`);
