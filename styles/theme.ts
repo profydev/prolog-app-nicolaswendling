@@ -1,4 +1,5 @@
 type Color = {
+  0: string;
   25: string;
   50: string;
   100: string;
@@ -66,6 +67,7 @@ export type Theme = {
 export const theme = {
   color: {
     gray: {
+      0: "#FFFFFF",
       25: "#FCFCFD",
       50: "#F9FAFB",
       100: "#f2f4f7",
@@ -79,6 +81,7 @@ export const theme = {
       900: "#101828",
     },
     primary: {
+      0: "#FFFFFF",
       25: "#FCFAFF",
       50: "#F9F5FF",
       100: "#F4EBFF",
@@ -92,6 +95,7 @@ export const theme = {
       900: "#42307D",
     },
     error: {
+      0: "#FFFFFF",
       25: "#FFFBFA",
       50: "#FEF3F2",
       100: "#FEE4E2",
@@ -105,6 +109,7 @@ export const theme = {
       900: "#7A271A",
     },
     warning: {
+      0: "#FFFFFF",
       25: "#FFFCF5",
       50: "#FFFAEB",
       100: "#FEF0C7",
@@ -118,6 +123,7 @@ export const theme = {
       900: "#7A2E0E",
     },
     success: {
+      0: "#FFFFFF",
       25: "#F6FEF9",
       50: "#ECFDF3",
       100: "#D1FADF",
