@@ -10,24 +10,24 @@ describe("Sidebar Navigation", () => {
 
     it("links are working", () => {
       // check that each link leads to the correct page
-      cy.get("nav").contains("Issues").click();
+      cy.get("#sidebar-nav").contains("Issues").click();
       cy.url().should("eq", "http://localhost:3000/dashboard/issues");
 
-      cy.get("nav").contains("Projects").click();
+      cy.get("#sidebar-nav").contains("Projects").click();
       cy.url().should("eq", "http://localhost:3000/dashboard");
 
-      cy.get("nav").contains("Alerts").click();
+      cy.get("#sidebar-nav").contains("Alerts").click();
       cy.url().should("eq", "http://localhost:3000/dashboard/alerts");
 
-      cy.get("nav").contains("Users").click();
+      cy.get("#sidebar-nav").contains("Users").click();
       cy.url().should("eq", "http://localhost:3000/dashboard/users");
 
-      cy.get("nav").contains("Settings").click();
+      cy.get("#sidebar-nav").contains("Settings").click();
       cy.url().should("eq", "http://localhost:3000/dashboard/settings");
     });
 
     it("open User Client Email", () => {
-      cy.get("nav").contains("Support").as("support-link");
+      cy.get("#sidebar-nav").contains("Support").as("support-link");
       cy.get("@support-link")
         .should("have.attr", "href")
         .and(
@@ -38,14 +38,14 @@ describe("Sidebar Navigation", () => {
 
     it("is collapsible", () => {
       // collapse navigation
-      cy.get("nav").contains("Collapse").click();
+      cy.get("#sidebar-nav").contains("Collapse").click();
 
       // check that links still exist and are functionable
-      cy.get("nav").find("a").should("have.length", 6).eq(1).click();
+      cy.get("#sidebar-nav").find("a").should("have.length", 6).eq(1).click();
       cy.url().should("eq", "http://localhost:3000/dashboard/issues");
 
       // check that text is not rendered
-      cy.get("nav").contains("Issues").should("not.exist");
+      cy.get("#sidebar-nav").contains("Issues").should("not.exist");
     });
   });
 
@@ -75,26 +75,26 @@ describe("Sidebar Navigation", () => {
     it("toggles sidebar navigation by clicking the menu icon", () => {
       // wait for animation to finish
       cy.wait(500);
-      isNotInViewport("nav");
+      isNotInViewport("#sidebar-nav");
 
       // open mobile navigation
       cy.get("img[alt='open menu']").click();
 
       // wait for animation to finish
       cy.wait(500);
-      isInViewport("nav");
+      isInViewport("#sidebar-nav");
 
       // check that all links are rendered
-      cy.get("nav").find("a").should("have.length", 6);
+      cy.get("#sidebar-nav").find("a").should("have.length", 6);
 
       // Support button should be rendered but Collapse button not
-      cy.get("nav").contains("Support").should("exist");
-      cy.get("nav").contains("Collapse").should("not.be.visible");
+      cy.get("#sidebar-nav").contains("Support").should("exist");
+      cy.get("#sidebar-nav").contains("Collapse").should("not.be.visible");
 
       // close mobile navigation and check that it disappears
       cy.get("img[alt='close menu']").click();
       cy.wait(500);
-      isNotInViewport("nav");
+      isNotInViewport("#sidebar-nav");
     });
   });
 });

@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import styled from "styled-components";
-import { SidebarNavigation } from "@features/ui";
+import { SidebarNavigation, Footer } from "@features/ui";
 import { color, displayFont, textFont, space, breakpoint } from "@styles/theme";
 
 type PageContainerProps = {
@@ -33,7 +33,8 @@ const ContentContainer = styled.div`
   background: white;
 
   @media (min-width: ${breakpoint("desktop")}) {
-    min-height: calc(100vh - ${space(3)} - 2 * ${space(8)});
+    //3*space(5) = footer
+    min-height: calc(100vh - ${space(3)} - 2 * ${space(8)} - 3 * ${space(5)});
     margin-top: ${space(3)};
     padding: ${space(8)};
     border-top-left-radius: ${space(10)};
@@ -68,6 +69,7 @@ export function PageContainer({ children, title, info }: PageContainerProps) {
           <Info>{info}</Info>
           {children}
         </ContentContainer>
+        <Footer />
       </Main>
     </Container>
   );
