@@ -22,11 +22,11 @@ describe("Issue List", () => {
     cy.visit(`http://localhost:3000/dashboard/issues`);
 
     // wait for request to resolve
-    cy.wait("@getProjects");
-    cy.wait("@getIssues");
+    cy.wait(["@getProjects", "@getIssuesPage1"]);
+    cy.wait(500);
 
     // set button aliases
-    cy.get("button", { timeout: 10000 }).contains("Previous").as("prev-button");
+    cy.get("button").contains("Previous").as("prev-button");
     cy.get("button").contains("Next").as("next-button");
   });
 
@@ -77,13 +77,10 @@ describe("Issue List", () => {
       cy.get("@next-button").click();
       cy.contains("Page 2 of 3").as("page-2-of-3");
 
-      cy.reload({ timeout: 10000 });
-      cy.wait(10000);
-      cy.get("@page-2-of-3").should("have.text", "Page 2 of 3");
-
-      // cy.reload({ timeout: 5000 });
-      // cy.wait("@pagination");
-      // cy.contains("@pagination").should("have.text", "Page 2 of 3");
+      cy.reload();
+      cy.wait(["@getProjects", "@getIssuesPage2"]);
+      cy.wait(1500);
+      cy.contains("Page 2 of 3");
     });
   });
 });
