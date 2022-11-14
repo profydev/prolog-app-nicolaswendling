@@ -67,8 +67,8 @@ export function PageContainer({ children, title, info }: PageContainerProps) {
           <Title>{title}</Title>
           <Info>{info}</Info>
           {children}
+          <Footer />
         </ContentContainer>
-        <Footer />
       </Main>
     </Container>
   );
