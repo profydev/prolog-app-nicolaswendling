@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { color, breakpoint, space } from "@styles/theme";
 import Image from "next/image";
 import Link from "next/link";
-import { version } from "../../../package.json";
+import packageInfo from "../../../package.json";
 
 const Container = styled.footer`
   color: ${color("gray", 400)};
@@ -75,7 +75,7 @@ export function Footer() {
         />
       </ImageWrapper>
       <Version id="version">
-        Version: <span>{version}</span>
+        Version: <span>{packageInfo.version}</span>
       </Version>
     </Container>
   );
