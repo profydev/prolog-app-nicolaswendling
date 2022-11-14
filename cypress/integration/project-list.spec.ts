@@ -12,7 +12,8 @@ describe("Project List", () => {
     cy.visit("http://localhost:3000/dashboard");
 
     // wait for request to resolve
-    cy.wait("@getProjects");
+    cy.wait(["@getProjects"]);
+    cy.wait(500);
   });
 
   context("desktop resolution", () => {
