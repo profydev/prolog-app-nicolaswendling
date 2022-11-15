@@ -24,6 +24,7 @@ const Nav = styled.nav`
   gap: ${space(6)};
   margin: auto auto ${space(6)};
   @media (min-width: ${breakpoint("desktop")}) {
+    margin-bottom: auto;
     order: 1;
     flex-grow: 1;
   }
